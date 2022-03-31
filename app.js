@@ -8,6 +8,10 @@ app.set('trust proxy', true);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get('/', (req, res) => {
+    res.status(200).send('Healthy');
+});
+
 app.use([require('./server/route/shortRand_route'), require('./server/route/shortKey_route'), require('./server/route/shortKGS_route'), require('./server/route/shortUnique_route')]);
 
 // 404

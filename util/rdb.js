@@ -21,16 +21,16 @@ const poolRead00 = mysql.createPool({
     queueLimit: 0,
 });
 
-/*
+
 const poolRead01 = mysql.createPool({
     host: process.env.DB_HOST_READ_01,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     waitForConnections: true,
-    connectionLimit: 10,
+    connectionLimit: 55,
     queueLimit: 0,
 });
-*/
+
 
 module.exports = [[poolWrite], [ poolWrite, poolRead00]];
