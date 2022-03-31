@@ -7,7 +7,7 @@ const poolWrite = mysql.createPool({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     waitForConnections: true,
-    connectionLimit: 50,
+    connectionLimit: 25,
     queueLimit: 0,
 });
 
@@ -17,7 +17,7 @@ const poolRead00 = mysql.createPool({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     waitForConnections: true,
-    connectionLimit: 50,
+    connectionLimit: 25,
     queueLimit: 0,
 });
 
@@ -28,9 +28,20 @@ const poolRead01 = mysql.createPool({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     waitForConnections: true,
-    connectionLimit: 50,
+    connectionLimit: 25,
+    queueLimit: 0,
+});
+
+const poolRead02 = mysql.createPool({
+    host: process.env.DB_HOST_READ_02,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    waitForConnections: true,
+    connectionLimit: 25,
     queueLimit: 0,
 });
 
 
-module.exports = [[poolWrite], [ poolWrite, poolRead00, poolRead01]];
+
+module.exports = [[poolWrite], [ poolRead00, poolRead01, poolRead02]];
