@@ -41,7 +41,8 @@ const getShortUnique = async (req, res) => {
         return res.status(404).json({ error: 'Not Found' });
     }
     // return res.status(200).json({data:result[0].originalUrl});
-    return res.redirect(301, result[0].originalUrl);
+    return res.status(200).json({ data: result[0].originalUrl });
+    //return res.redirect(301, result[0].originalUrl);
 };
 
 
