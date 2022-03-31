@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 
 // app.use(express.static('public'));
+app.set('trust proxy', true);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
